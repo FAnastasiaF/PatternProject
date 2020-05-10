@@ -1,6 +1,6 @@
 # PatternProject
 
-cd project
-cmake .
-make
-./project
+cd project  
+cmake .  
+make  
+./project  
