@@ -4,10 +4,10 @@ project(project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(project main.cpp)
-add_subdirectory(ArmyCreation)
-add_subdirectory(Characters)
-add_subdirectory(Unit)
+add_subdirectory(Creation)
+add_subdirectory(Factories)
+add_subdirectory(Units)
 
-set(ADDITIONAL_LIBRARIES project_characters project_unit army)
+set(ADDITIONAL_LIBRARIES units factories creation)
 
 target_link_libraries(project ${ADDITIONAL_LIBRARIES})

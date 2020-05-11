@@ -1,44 +1,35 @@
 #include <iostream>
-#include "ArmyCreation/Game.h"
-#include "Unit/BlackUnit.h"
-#include "Unit/WhiteUnit.h"
+#include <vector>
+#include <memory>
+#include <string>
+#include "Creation/ArmyCreate.h"
 
-
-int main()
-{
+int main() {
+    ArmyCreate Army;
     int numberunit;
-    std::string side;
     std::string unit;
-    Game game;
-    Army* army = new Army;
+    std::string side;
     std::cout << "Choose side: Black or White\n";
     std::cin >> side;
     if(side == "Black") {
-        BlackUnit blackarmy;
-        Army * black = army;
         std::cout << "How many units do you want to create?\n";
         std::cin >> numberunit;
         std::cout << "Choose " << numberunit << " unit: Wizard, Elf or Giant\n";
-        for(int j = 0; j < numberunit; ++j) {
+        for (int i = 0; i < numberunit; ++i) {
             std::cin >> unit;
-            black = game.createUnit(blackarmy, *army, unit);
+            Army.AddBlackUnit(unit);
         }
-        std::cout << "Black army:\n";
-        black->info();
-    } else if(side == "White") {
-        WhiteUnit whitearmy;
-        Army * white = army;
+    } else if (side == "White") {
         std::cout << "How many units do you want to create?\n";
         std::cin >> numberunit;
         std::cout << "Choose " << numberunit << " unit: Wizard, Elf or Giant\n";
-        for(int j = 0; j < numberunit; ++j) {
+        for (int i = 0; i < numberunit; ++i) {
             std::cin >> unit;
-            white = game.createUnit(whitearmy, *army, unit);
+            Army.AddWhiteUnit(unit);
         }
-        std::cout << "White army:\n";
-        white->info();
     } else {
-        std::cout << "There is no such side";
+        std :: cout << "Wrong side";
     }
+    Army.info();
     return 0;
 }
