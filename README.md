@@ -1,5 +1,6 @@
 # PatternProject
-Для того чтобы запустить проект надо:  
-cmake $(path to project)  
+
+cd project  
+cmake .  
 make  
-./ project  
+./project  
